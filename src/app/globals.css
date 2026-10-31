@@ -1,0 +1,53 @@
+:root {
+  /* Brand — taken from the SUMVERA logo */
+  --forest: #0d2b1d;
+  --forest-2: #1d4a33;
+  --cream: #f9f6ed;
+  --sand: #efe8d6;
+  --sage: #dce3d3;
+  --muted: #4f6457;
+  --gold: #c9a96b;
+
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+
+  --max-width: 1240px;
+  --gutter: 40px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--forest);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+  }
+}
