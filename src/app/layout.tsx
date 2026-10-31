@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Jost, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -23,7 +26,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jost.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+      <body>
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
+      </body>
     </html>
   );
 }
