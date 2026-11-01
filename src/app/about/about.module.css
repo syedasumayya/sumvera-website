@@ -1,0 +1,219 @@
+.eyebrow {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.h2 {
+  font-weight: 300;
+  font-size: clamp(30px, 3.8vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.h2 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+}
+
+/* ---- story ---- */
+.story {
+  background: var(--cream);
+}
+
+.storyInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 96px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 56px;
+}
+
+.photo {
+  position: relative;
+  flex: 1 1 340px;
+  max-width: 480px;
+  aspect-ratio: 2 / 3;
+  border-radius: 160px 160px 24px 24px;
+  overflow: hidden;
+  background: #ece8e0;
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.copy {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.copy p {
+  max-width: 520px;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.copy .h2 {
+  margin-bottom: 8px;
+}
+
+/* ---- values ---- */
+.values {
+  background: var(--sand);
+}
+
+.valuesInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.value {
+  border-top: 1px solid var(--forest);
+  padding-top: 20px;
+}
+
+.value h3 {
+  font-weight: 300;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.value p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---- shop strip ---- */
+.shop {
+  background: var(--cream);
+}
+
+.shopInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px 40px;
+}
+
+.shopLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 52px;
+  padding: 0 28px;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  color: var(--forest);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.pill:hover {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+/* ---- connect ---- */
+.connect {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.connectInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 88px var(--gutter) 96px;
+}
+
+.connect .eyebrow {
+  color: var(--gold);
+}
+
+.cards {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(201, 169, 107, 0.45);
+  border-radius: 6px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  background: #15402e;
+  border-color: var(--gold);
+}
+
+.card:focus-visible {
+  outline: 2px solid #e9dfc3;
+  outline-offset: 3px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 107, 0.6);
+  color: var(--gold);
+}
+
+.cardLabel {
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.cardHandle {
+  margin: 4px 0 14px;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.cardText {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #c5cfc1;
+}

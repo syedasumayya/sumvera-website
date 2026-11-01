@@ -1,0 +1,42 @@
+.hero {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 88px var(--gutter) 96px;
+}
+
+.eyebrow {
+  margin-bottom: 22px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  font-weight: 300;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+  color: var(--gold);
+}
+
+.lead {
+  max-width: 560px;
+  margin-top: 28px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #c5cfc1;
+}

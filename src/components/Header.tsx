@@ -13,9 +13,6 @@ interface NavItem {
 
 const NAV: readonly NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Men", href: "/#men" },
-  { label: "Women", href: "/#women" },
-  { label: "Premium", href: "/#premium" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
