@@ -1,25 +1,37 @@
-import type { Category, Product } from "@/types/product";
+import type { Category, Product, Size, Variant } from "@/types/product";
+
+/* ------------------------------------------------------------------
+   PLACEHOLDER CATALOGUE — replace names, prices and photos with the
+   real ones. Model photos live in /public/products.
+------------------------------------------------------------------- */
+
+const SIZES: readonly Size[] = ["S", "M", "L", "XL"];
+
+const pink: Variant = { name: "Rose Pink", hex: "#E58BAA", image: "/products/pink-set.webp" };
+const blue: Variant = { name: "Sky Blue", hex: "#6E9BDA", image: "/products/blue-set.webp" };
+const sand: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/beige-set.webp" };
+const sandFlat: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/sand-set-flat.webp", fit: "flat" };
 
 export const products: readonly Product[] = [
   // Men
-  { id: "m1", slug: "everyday-tee", name: "Everyday Tee", category: "men", garment: "tee", price: null, colors: ["#1B3A2A", "#E8DFC6", "#8FA48A"], isNew: true },
-  { id: "m2", slug: "linen-shirt", name: "Linen Shirt", category: "men", garment: "shirt", price: null, colors: ["#F1EAD6", "#8FA48A", "#C9B98E"] },
-  { id: "m3", slug: "classic-polo", name: "Classic Polo", category: "men", garment: "polo", price: null, colors: ["#6B7A55", "#1B3A2A", "#CBBF9F"] },
-  { id: "m4", slug: "heavy-hoodie", name: "Heavy Hoodie", category: "men", garment: "hoodie", price: null, colors: ["#2E3A33", "#6B7A55", "#D5C9A8"], isNew: true },
-  { id: "m5", slug: "relaxed-trousers", name: "Relaxed Trousers", category: "men", garment: "trousers", price: null, colors: ["#B9AC88", "#1B3A2A", "#2E3A33"] },
+  { id: "m1", slug: "bear-tracksuit-men", name: "Bear Tracksuit", category: "men", price: 7500, sizes: SIZES, variants: [blue], isNew: true },
+  { id: "m2", slug: "essential-tracksuit-men", name: "Essential Tracksuit", category: "men", price: 6900, sizes: SIZES, variants: [sandFlat] },
+  { id: "m3", slug: "heavy-fleece-tracksuit-men", name: "Heavy Fleece Tracksuit", category: "men", price: 8900, sizes: SIZES, variants: [blue] },
+  { id: "m4", slug: "classic-tracksuit-men", name: "Classic Tracksuit", category: "men", price: 7200, sizes: SIZES, variants: [sandFlat] },
+  { id: "m5", slug: "everyday-tracksuit-men", name: "Everyday Tracksuit", category: "men", price: 6500, sizes: SIZES, variants: [blue], isNew: true },
   // Women
-  { id: "w1", slug: "midi-dress", name: "Midi Dress", category: "women", garment: "dress", price: null, colors: ["#35553F", "#E8DFC6", "#0D2B1D"], isNew: true },
-  { id: "w2", slug: "long-kurta", name: "Long Kurta", category: "women", garment: "kurta", price: null, colors: ["#E8DFC6", "#8FA48A", "#1B3A2A"] },
-  { id: "w3", slug: "relaxed-tee", name: "Relaxed Tee", category: "women", garment: "tee", price: null, colors: ["#8FA48A", "#F1EAD6", "#1B3A2A"] },
-  { id: "w4", slug: "wide-leg-trousers", name: "Wide-Leg Trousers", category: "women", garment: "trousers", price: null, colors: ["#1F3B2B", "#B9AC88", "#E8DFC6"] },
-  { id: "w5", slug: "soft-hoodie", name: "Soft Hoodie", category: "women", garment: "hoodie", price: null, colors: ["#D5C9A8", "#8FA48A", "#35553F"], isNew: true },
+  { id: "w1", slug: "bear-tracksuit-women", name: "Bear Tracksuit", category: "women", price: 7500, sizes: SIZES, variants: [pink, sand], isNew: true },
+  { id: "w2", slug: "essential-tracksuit-women", name: "Essential Tracksuit", category: "women", price: 6900, sizes: SIZES, variants: [sand, pink] },
+  { id: "w3", slug: "soft-fleece-tracksuit-women", name: "Soft Fleece Tracksuit", category: "women", price: 7800, sizes: SIZES, variants: [sandFlat] },
+  { id: "w4", slug: "classic-tracksuit-women", name: "Classic Tracksuit", category: "women", price: 7200, sizes: SIZES, variants: [pink] },
+  { id: "w5", slug: "everyday-tracksuit-women", name: "Everyday Tracksuit", category: "women", price: 6500, sizes: SIZES, variants: [pink], isNew: true },
   // Premium
-  { id: "p1", slug: "atelier-overcoat", name: "Atelier Overcoat", category: "premium", garment: "overcoat", price: null, colors: ["#E9DFC3"], description: "Statement outerwear from the premium line." },
-  { id: "p2", slug: "atelier-evening-dress", name: "Atelier Evening Dress", category: "premium", garment: "dress", price: null, colors: ["#F3ECD8"], description: "An evening silhouette from the premium line." },
+  { id: "p1", slug: "signature-tracksuit", name: "Signature Tracksuit", category: "premium", price: 14500, sizes: SIZES, variants: [sand], description: "From our premium line." },
+  { id: "p2", slug: "signature-bear-tracksuit", name: "Signature Bear Tracksuit", category: "premium", price: 16500, sizes: SIZES, variants: [pink], description: "From our premium line." },
 ];
 
 export const getByCategory = (category: Category): Product[] =>
   products.filter((p) => p.category === category);
 
-export const formatPrice = (price: number | null): string =>
-  price === null ? "Rs. —" : `Rs. ${price.toLocaleString("en-PK")}`;
+export const formatPrice = (price: number): string =>
+  `Rs. ${price.toLocaleString("en-PK")}`;

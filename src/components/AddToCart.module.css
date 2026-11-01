@@ -1,0 +1,103 @@
+.sizes {
+  display: flex;
+  gap: 6px;
+}
+
+.size {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(13, 43, 29, 0.3);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--forest);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.size:hover {
+  border-color: var(--forest);
+}
+
+.selected,
+.selected:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--cream);
+}
+
+.warn {
+  border-color: #a83a2b;
+}
+
+.error {
+  min-height: 20px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #a83a2b;
+}
+
+.cta {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--forest-2);
+}
+
+/* ---- on the dark premium section ---- */
+
+.gold .size {
+  border-color: rgba(201, 169, 107, 0.5);
+  color: var(--cream);
+}
+
+.gold .size:hover {
+  border-color: var(--gold);
+}
+
+.gold .selected,
+.gold .selected:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--forest);
+}
+
+.gold .warn {
+  border-color: #ff9b8a;
+}
+
+.gold .error {
+  color: #ff9b8a;
+}
+
+.gold .cta {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--forest);
+}
+
+.gold .cta:hover {
+  background: #e9dfc3;
+}
+
+.gold .size:focus-visible,
+.gold .cta:focus-visible {
+  outline-color: #e9dfc3;
+}

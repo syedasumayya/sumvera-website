@@ -7,13 +7,11 @@ interface Props {
   eyebrow: string;
   title: string;
   products: readonly Product[];
-  /** Cycle of background tints for the cards. */
-  tints: readonly string[];
   /** Tinted section background (alternates between sections). */
   shaded?: boolean;
 }
 
-export default function ProductSection({ id, eyebrow, title, products, tints, shaded }: Props) {
+export default function ProductSection({ id, eyebrow, title, products, shaded }: Props) {
   return (
     <section id={id} className={`${styles.section} ${shaded ? styles.shaded : ""}`}>
       <div className={styles.inner}>
@@ -25,8 +23,8 @@ export default function ProductSection({ id, eyebrow, title, products, tints, sh
           <p className={styles.count}>{products.length} designs</p>
         </div>
         <div className={styles.grid}>
-          {products.map((p, i) => (
-            <ProductCard key={p.id} product={p} tint={tints[i % tints.length]} />
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
           ))}
         </div>
       </div>

@@ -1,24 +1,39 @@
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
 .media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   border-radius: 6px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #ece8e0;
 }
 
-.art {
-  width: 66%;
-  transition: transform 0.35s ease;
+.flat {
+  background: #e6dfcd;
 }
 
-.card:hover .art {
+.imgModel {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imgFlat {
+  object-fit: contain;
+  padding: 12% 10%;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .imgModel,
+.card:hover .imgFlat {
   transform: scale(1.04);
 }
 
 .badge {
   position: absolute;
+  z-index: 2;
   top: 12px;
   left: 12px;
   background: var(--forest);
@@ -29,12 +44,6 @@
   text-transform: uppercase;
   padding: 5px 9px;
   border-radius: 2px;
-}
-
-.add {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
 }
 
 .info {
@@ -54,19 +63,52 @@
 .info span {
   font-size: 15px;
   color: var(--muted);
+  white-space: nowrap;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 6px 2px 0;
 }
 
 .swatches {
   display: flex;
-  gap: 6px;
   list-style: none;
   margin: 0;
-  padding: 10px 2px 0;
+  padding: 0;
 }
 
-.swatches li {
-  width: 12px;
-  height: 12px;
+/* 44px tap area, 14px visible dot */
+.swatch {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin: 15px 8px 15px 0;
+  padding: 0;
   border-radius: 50%;
   border: 1px solid rgba(13, 43, 29, 0.3);
+  cursor: pointer;
+}
+
+.swatch::after {
+  content: "";
+  position: absolute;
+  inset: -15px -8px;
+}
+
+.active {
+  box-shadow: 0 0 0 2px var(--cream), 0 0 0 3px var(--forest);
+}
+
+.colorName {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.buy {
+  margin-top: auto;
+  padding-top: 8px;
 }

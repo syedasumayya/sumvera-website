@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -19,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "SUMVERA — Clothing with roots",
+  title: "SUMVERA — Comfort meets confidence",
   description: "Simple, considered pieces for men and women, plus a small premium line.",
 };
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           {children}
           <Footer />
+          <CartDrawer />
         </CartProvider>
       </body>
     </html>

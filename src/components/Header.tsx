@@ -13,13 +13,16 @@ interface NavItem {
 
 const NAV: readonly NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Men", href: "/#men" },
+  { label: "Women", href: "/#women" },
+  { label: "Premium", href: "/#premium" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
-  const { count } = useCart();
+  const { count, openCart } = useCart();
 
   return (
     <>
@@ -54,7 +57,9 @@ export default function Header() {
             <button
               type="button"
               className={styles.iconBtn}
-              aria-label={`Bag, ${count} ${count === 1 ? "item" : "items"}`}
+              aria-label={`Open cart, ${count} ${count === 1 ? "item" : "items"}`}
+              aria-haspopup="dialog"
+              onClick={openCart}
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 8h14l-1 12H6L5 8z" />
