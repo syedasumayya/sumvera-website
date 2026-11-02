@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import type { Product } from "@/types/product";
 import { formatPrice } from "@/data/products";
 import AddToCart from "./AddToCart";
+import ProductGallery from "./ProductGallery";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -16,17 +16,17 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className={styles.card}>
-      <div className={`${styles.media} ${isFlat ? styles.flat : ""}`}>
+      <ProductGallery
+        key={photo}
+        front={photo}
+        back={variant.back}
+        alt={`${product.name} in ${variant.name}`}
+        sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 240px"
+        frameClassName={`${styles.media} ${isFlat ? styles.flat : ""}`}
+        imgClassName={isFlat ? styles.imgFlat : styles.imgModel}
+      >
         {product.isNew && <span className={styles.badge}>New</span>}
-        <Image
-          key={photo}
-          src={photo}
-          alt={`${product.name} in ${variant.name}`}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 240px"
-          className={isFlat ? styles.imgFlat : styles.imgModel}
-        />
-      </div>
+      </ProductGallery>
 
       <div className={styles.info}>
         <h3>{product.name}</h3>

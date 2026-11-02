@@ -1,7 +1,7 @@
-import Image from "next/image";
 import type { Product } from "@/types/product";
 import { formatPrice } from "@/data/products";
 import AddToCart from "./AddToCart";
+import ProductGallery from "./ProductGallery";
 import styles from "./PremiumSection.module.css";
 
 export default function PremiumSection({ products }: { products: readonly Product[] }) {
@@ -19,16 +19,16 @@ export default function PremiumSection({ products }: { products: readonly Produc
         <div className={styles.row}>
           {products.map((p) => (
             <article key={p.id} className={styles.card}>
-              <div className={styles.media}>
+              <ProductGallery
+                front={p.variants[0].image}
+                back={p.variants[0].back}
+                alt={`${p.name} in ${p.variants[0].name}`}
+                sizes="(max-width: 900px) 100vw, 460px"
+                frameClassName={styles.media}
+                imgClassName={styles.photo}
+              >
                 <span className={styles.tag}>Premium</span>
-                <Image
-                  src={p.variants[0].image}
-                  alt={`${p.name} in ${p.variants[0].name}`}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 560px"
-                  className={styles.photo}
-                />
-              </div>
+              </ProductGallery>
               <div className={styles.info}>
                 <h3>{p.name}</h3>
                 <span>{formatPrice(p.price)}</span>
