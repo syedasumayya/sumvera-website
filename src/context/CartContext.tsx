@@ -29,6 +29,7 @@ interface CartContextValue {
   /** Sets the quantity; anything below 1 removes the line. */
   setQty: (key: string, qty: number) => void;
   removeItem: (key: string) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -61,6 +62,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems((prev) => prev.filter((i) => i.key !== key));
   }, []);
 
+  const clearCart = useCallback(() => setItems([]), []);
+
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);
 
@@ -75,8 +78,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
       addItem,
       setQty,
       removeItem,
+      clearCart,
     }),
-    [items, isOpen, openCart, closeCart, addItem, setQty, removeItem],
+    [items, isOpen, openCart, closeCart, addItem, setQty, removeItem, clearCart],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

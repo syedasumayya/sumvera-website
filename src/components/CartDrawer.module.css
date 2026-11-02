@@ -265,3 +265,133 @@
   opacity: 0.55;
   cursor: not-allowed;
 }
+
+/* make the checkout button work as a link too */
+a.checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.checkout:hover:not(:disabled) {
+  background: var(--forest-2);
+}
+
+/* ---- checkout form ---- */
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 24px 24px;
+  overflow-y: auto;
+}
+
+.back {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: var(--forest);
+  text-decoration: underline;
+}
+
+.formTitle {
+  font-weight: 300;
+  font-size: 26px;
+}
+
+.codBadge {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(13, 43, 29, 0.35);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--forest);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+textarea.input {
+  resize: vertical;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 1px;
+}
+
+.input[aria-invalid="true"] {
+  border-color: #a33a2a;
+}
+
+.error {
+  font-size: 13px;
+  font-weight: 400;
+  color: #a33a2a;
+}
+
+.formFoot {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* ---- done ---- */
+.done {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px;
+}
+
+.done h3 {
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.done p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.done .codNote {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--forest);
+}

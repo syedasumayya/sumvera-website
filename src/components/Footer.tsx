@@ -46,32 +46,25 @@ export default function Footer() {
           </nav>
 
           <div className={styles.col}>
-            <p className={styles.colTitle}>Get in touch</p>
-            <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" className={styles.social}>
-              <WhatsAppIcon size={20} />
-              <span>
-                WhatsApp
-                <small>{site.whatsapp.display}</small>
-              </span>
-            </a>
-            <a href={site.instagram.href} target="_blank" rel="noopener noreferrer" className={styles.social}>
-              <InstagramIcon size={20} />
-              <span>
-                Instagram
-                <small>{site.instagram.handle}</small>
-              </span>
-            </a>
-            <a href={site.tiktok.href} target="_blank" rel="noopener noreferrer" className={styles.social}>
-              <TikTokIcon size={20} />
-              <span>
-                TikTok
-                <small>{site.tiktok.handle}</small>
-              </span>
-            </a>
+            <p className={styles.colTitle}>Follow us</p>
+            <div className={styles.icons}>
+              <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" aria-label="SUMVERA on WhatsApp" className={styles.iconLink}>
+                <WhatsAppIcon size={22} />
+              </a>
+              <a href={site.instagram.href} target="_blank" rel="noopener noreferrer" aria-label="SUMVERA on Instagram" className={styles.iconLink}>
+                <InstagramIcon size={22} />
+              </a>
+              <a href={site.tiktok.href} target="_blank" rel="noopener noreferrer" aria-label="SUMVERA on TikTok" className={styles.iconLink}>
+                <TikTokIcon size={22} />
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className={styles.bottom}>© {YEAR} {site.name}. All rights reserved.</div>
+        <div className={styles.bottom}>
+          <span>© {YEAR} {site.name}. All rights reserved.</span>
+          <span>Made in Islamabad, Pakistan</span>
+        </div>
       </div>
     </footer>
   );

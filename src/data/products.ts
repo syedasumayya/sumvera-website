@@ -12,10 +12,24 @@ const blue: Variant = { name: "Sky Blue", hex: "#6E9BDA", image: "/products/blue
 const sand: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/beige-set.webp" };
 const sandFlat: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/sand-set-flat.webp", fit: "flat" };
 
+/* Real men's photos (front + back) */
+const menBearBlue: Variant = {
+  name: "Sky Blue",
+  hex: "#6F98D0",
+  image: "/products/bear-blue-front.webp",
+  back: "/products/bear-blue-back.webp",
+};
+const menSummitNavy: Variant = {
+  name: "Navy",
+  hex: "#1B2A4E",
+  image: "/products/summit-navy-front.webp",
+  back: "/products/summit-navy-back.webp",
+};
+
 export const products: readonly Product[] = [
   // Men
-  { id: "m1", slug: "bear-tracksuit-men", name: "Bear Tracksuit", category: "men", price: 7500, sizes: SIZES, variants: [blue], isNew: true },
-  { id: "m2", slug: "essential-tracksuit-men", name: "Essential Tracksuit", category: "men", price: 6900, sizes: SIZES, variants: [sandFlat] },
+  { id: "m1", slug: "bear-tracksuit-men", name: "Bear Tracksuit", category: "men", price: 7500, sizes: SIZES, variants: [menBearBlue], isNew: true },
+  { id: "m2", slug: "summit-tracksuit-men", name: "Summit Tracksuit", category: "men", price: 6900, sizes: SIZES, variants: [menSummitNavy], isNew: true },
   { id: "m3", slug: "heavy-fleece-tracksuit-men", name: "Heavy Fleece Tracksuit", category: "men", price: 8900, sizes: SIZES, variants: [blue] },
   { id: "m4", slug: "classic-tracksuit-men", name: "Classic Tracksuit", category: "men", price: 7200, sizes: SIZES, variants: [sandFlat] },
   { id: "m5", slug: "everyday-tracksuit-men", name: "Everyday Tracksuit", category: "men", price: 6500, sizes: SIZES, variants: [blue], isNew: true },

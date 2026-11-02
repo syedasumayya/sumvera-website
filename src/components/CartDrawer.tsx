@@ -1,13 +1,41 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/data/products";
+import { buildOrderMessage, orderUrl, validateOrder, type OrderDetails, type OrderErrors } from "@/lib/order";
 import styles from "./CartDrawer.module.css";
 
 export default function CartDrawer() {
-  const { items, count, subtotal, isOpen, closeCart, setQty, removeItem } = useCart();
+  const { items, count, subtotal, isOpen, closeCart, setQty, removeItem, clearCart } = useCart();
+  const [step, setStep] = useState<"cart" | "details" | "done">("cart");
+  const [details, setDetails] = useState<OrderDetails>({ name: "", phone: "", city: "", address: "" });
+  const [errors, setErrors] = useState<OrderErrors>({});
+  const [link, setLink] = useState("");
+
+  const close = useCallback(() => {
+    closeCart();
+    setStep("cart");
+  }, [closeCart]);
+
+  const submitOrder = (e: FormEvent) => {
+    e.preventDefault();
+    const found = validateOrder(details);
+    setErrors(found);
+    if (Object.keys(found).length > 0) return;
+    const url = orderUrl(buildOrderMessage(items, subtotal, details));
+    setLink(url);
+    window.open(url, "_blank", "noopener,noreferrer");
+    setStep("done");
+  };
+
+  const field = (key: keyof OrderDetails) => ({
+    value: details[key],
+    onChange: (e: { target: { value: string } }) => setDetails((d) => ({ ...d, [key]: e.target.value })),
+    "aria-invalid": errors[key] ? true : undefined,
+    "aria-describedby": errors[key] ? `err-${key}` : undefined,
+  });
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -21,7 +49,7 @@ export default function CartDrawer() {
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        closeCart();
+        close();
         return;
       }
       if (e.key !== "Tab" || !panelRef.current) return;
@@ -46,13 +74,13 @@ export default function CartDrawer() {
       document.body.style.overflow = previousOverflow;
       opener?.focus();
     };
-  }, [isOpen, closeCart]);
+  }, [isOpen, close]);
 
   if (!isOpen) return null;
 
   return (
     <div className={styles.root}>
-      <div className={styles.overlay} onClick={closeCart} aria-hidden="true" />
+      <div className={styles.overlay} onClick={close} aria-hidden="true" />
 
       <div
         ref={panelRef}
@@ -65,17 +93,79 @@ export default function CartDrawer() {
           <h2>
             Your cart <span>({count})</span>
           </h2>
-          <button ref={closeRef} type="button" className={styles.close} onClick={closeCart} aria-label="Close cart">
+          <button ref={closeRef} type="button" className={styles.close} onClick={close} aria-label="Close cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
         </div>
 
-        {items.length === 0 ? (
+        {step === "done" ? (
+          <div className={styles.done}>
+            <h3>Almost done</h3>
+            <p>
+              WhatsApp should have opened with your order ready. Press <strong>Send</strong> there to confirm it.
+              We’ll confirm your delivery charges and delivery on WhatsApp.
+            </p>
+            <p className={styles.codNote}>Payment: Cash on Delivery</p>
+            <a href={link} target="_blank" rel="noopener noreferrer" className={styles.checkout}>
+              Open WhatsApp again
+            </a>
+            <button
+              type="button"
+              className={styles.continue}
+              onClick={() => {
+                clearCart();
+                close();
+              }}
+            >
+              I sent it, clear my cart
+            </button>
+          </div>
+        ) : step === "details" && items.length > 0 ? (
+          <form className={styles.form} onSubmit={submitOrder} noValidate>
+            <button type="button" className={styles.back} onClick={() => setStep("cart")}>
+              ← Back to cart
+            </button>
+            <h3 className={styles.formTitle}>Your details</h3>
+            <p className={styles.codBadge}>Payment: Cash on Delivery</p>
+
+            <label className={styles.label}>
+              Full name
+              <input type="text" autoComplete="name" className={styles.input} {...field("name")} />
+              {errors.name && <span id="err-name" className={styles.error} role="alert">{errors.name}</span>}
+            </label>
+            <label className={styles.label}>
+              Phone number
+              <input type="tel" autoComplete="tel" inputMode="tel" className={styles.input} {...field("phone")} />
+              {errors.phone && <span id="err-phone" className={styles.error} role="alert">{errors.phone}</span>}
+            </label>
+            <label className={styles.label}>
+              City
+              <input type="text" autoComplete="address-level2" className={styles.input} {...field("city")} />
+              {errors.city && <span id="err-city" className={styles.error} role="alert">{errors.city}</span>}
+            </label>
+            <label className={styles.label}>
+              Full address
+              <textarea rows={3} autoComplete="street-address" className={styles.input} {...field("address")} />
+              {errors.address && <span id="err-address" className={styles.error} role="alert">{errors.address}</span>}
+            </label>
+
+            <div className={styles.formFoot}>
+              <div className={styles.total}>
+                <span>Total ({count} {count === 1 ? "item" : "items"})</span>
+                <strong>{formatPrice(subtotal)}</strong>
+              </div>
+              <p className={styles.note}>Delivery charges are confirmed on WhatsApp.</p>
+              <button type="submit" className={styles.checkout}>
+                Send order on WhatsApp
+              </button>
+            </div>
+          </form>
+        ) : items.length === 0 ? (
           <div className={styles.empty}>
             <p>Your cart is empty.</p>
-            <button type="button" className={styles.continue} onClick={closeCart}>
+            <button type="button" className={styles.continue} onClick={close}>
               Continue shopping
             </button>
           </div>
@@ -128,9 +218,9 @@ export default function CartDrawer() {
                 <span>Subtotal</span>
                 <strong>{formatPrice(subtotal)}</strong>
               </div>
-              <p className={styles.note}>Delivery is calculated at checkout.</p>
-              <button type="button" className={styles.checkout} aria-disabled="true" disabled>
-                Checkout — coming soon
+              <p className={styles.note}>Cash on Delivery. Delivery charges are confirmed on WhatsApp.</p>
+              <button type="button" className={styles.checkout} onClick={() => setStep("details")}>
+                Checkout
               </button>
             </div>
           </>

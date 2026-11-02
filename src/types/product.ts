@@ -20,6 +20,8 @@ export interface Variant {
   hex: string;
   /** Path under /public. */
   image: string;
+  /** Optional back-view photo; shows a Front / Back toggle on the card. */
+  back?: string;
   /** "model" = full-bleed photo of a person; "flat" = product-only cut-out shown on a tint. */
   fit?: "model" | "flat";
 }
