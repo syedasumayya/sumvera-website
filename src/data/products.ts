@@ -26,6 +26,13 @@ const menSummitNavy: Variant = {
   back: "/products/summit-navy-back.webp",
 };
 
+const premiumBlack: Variant = {
+  name: "Black",
+  hex: "#15171A",
+  image: "/products/cargo-black-front.webp",
+  back: "/products/cargo-black-back.webp",
+};
+
 export const products: readonly Product[] = [
   // Men
   { id: "m1", slug: "bear-tracksuit-men", name: "Bear Tracksuit", category: "men", price: 7500, sizes: SIZES, variants: [menBearBlue], isNew: true },
@@ -40,7 +47,7 @@ export const products: readonly Product[] = [
   { id: "w4", slug: "classic-tracksuit-women", name: "Classic Tracksuit", category: "women", price: 7200, sizes: SIZES, variants: [pink] },
   { id: "w5", slug: "everyday-tracksuit-women", name: "Everyday Tracksuit", category: "women", price: 6500, sizes: SIZES, variants: [pink], isNew: true },
   // Premium
-  { id: "p1", slug: "signature-tracksuit", name: "Signature Tracksuit", category: "premium", price: 14500, sizes: SIZES, variants: [sand], description: "From our premium line." },
+  { id: "p1", slug: "midnight-cargo-tracksuit", name: "Midnight Cargo Tracksuit", category: "premium", price: 14500, sizes: SIZES, variants: [premiumBlack], description: "From our premium line." },
   { id: "p2", slug: "signature-bear-tracksuit", name: "Signature Bear Tracksuit", category: "premium", price: 16500, sizes: SIZES, variants: [pink], description: "From our premium line." },
 ];
 

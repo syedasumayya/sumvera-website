@@ -112,36 +112,3 @@
   margin-top: auto;
   padding-top: 8px;
 }
-
-/* Front / Back toggle on the photo */
-.views {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  display: flex;
-  background: rgba(249, 246, 237, 0.92);
-  border-radius: 999px;
-  padding: 2px;
-}
-
-.view {
-  min-height: 44px;
-  min-width: 56px;
-  padding: 0 14px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: var(--forest);
-  font: inherit;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.viewOn {
-  background: var(--forest);
-  color: var(--cream);
-}
