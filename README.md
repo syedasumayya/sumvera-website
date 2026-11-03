@@ -1,6 +1,6 @@
 # SUMVERA
 
-Online store for **SUMVERA**, a tracksuit brand (hoodie + jogger sets) for men and women, based in Islamabad, Pakistan.
+Online store for **SUMVERA**, a tracksuit brand (hoodie + jogger sets) for men and women, based in Islamabad,Punjab  Pakistan.
 
 > *Comfort meets confidence.*
 
