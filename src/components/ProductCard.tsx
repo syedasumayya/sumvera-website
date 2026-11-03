@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
         front={photo}
         back={variant.back}
         alt={`${product.name} in ${variant.name}`}
-        sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 240px"
+        sizes="(max-width: 640px) 50vw, (max-width: 1100px) 33vw, 280px"
         frameClassName={`${styles.media} ${isFlat ? styles.flat : ""}`}
         imgClassName={isFlat ? styles.imgFlat : styles.imgModel}
       >

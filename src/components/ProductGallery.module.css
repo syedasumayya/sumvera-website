@@ -24,15 +24,17 @@
   outline-offset: -4px;
 }
 
-/* Two small dots = front / back indicator */
+/* Two small dots = front / back indicator (top corner, away from the shoes) */
 .dots {
   position: absolute;
   z-index: 2;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
+  top: 12px;
+  right: 12px;
   display: flex;
   gap: 6px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(249, 246, 237, 0.85);
   pointer-events: none;
 }
 
@@ -40,7 +42,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(13, 43, 29, 0.35);
+  background: rgba(13, 43, 29, 0.3);
 }
 
 .dots i.on {

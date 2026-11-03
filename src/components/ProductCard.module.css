@@ -17,7 +17,7 @@
 
 .imgModel {
   object-fit: cover;
-  transition: transform 0.5s ease;
+  object-position: 50% 50%;
 }
 
 .imgFlat {
@@ -26,7 +26,8 @@
   transition: transform 0.5s ease;
 }
 
-.card:hover .imgModel,
+/* Only the product cut-outs (padded) get a small zoom. Model photos never zoom,
+   so heads and shoes are not cropped. */
 .card:hover .imgFlat {
   transform: scale(1.04);
 }

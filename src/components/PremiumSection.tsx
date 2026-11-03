@@ -23,7 +23,7 @@ export default function PremiumSection({ products }: { products: readonly Produc
                 front={p.variants[0].image}
                 back={p.variants[0].back}
                 alt={`${p.name} in ${p.variants[0].name}`}
-                sizes="(max-width: 900px) 100vw, 460px"
+                sizes="(max-width: 900px) 100vw, 520px"
                 frameClassName={styles.media}
                 imgClassName={styles.photo}
               >

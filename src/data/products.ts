@@ -8,7 +8,6 @@ import type { Category, Product, Size, Variant } from "@/types/product";
 const SIZES: readonly Size[] = ["S", "M", "L", "XL"];
 
 const pink: Variant = { name: "Rose Pink", hex: "#E58BAA", image: "/products/pink-set.webp" };
-const blue: Variant = { name: "Sky Blue", hex: "#6E9BDA", image: "/products/blue-set.webp" };
 const sand: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/beige-set.webp" };
 const sandFlat: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/sand-set-flat.webp", fit: "flat" };
 
@@ -26,6 +25,25 @@ const menSummitNavy: Variant = {
   back: "/products/summit-navy-back.webp",
 };
 
+const menMochaTaupe: Variant = {
+  name: "Taupe",
+  hex: "#A68D7C",
+  image: "/products/mocha-taupe-front.webp",
+  back: "/products/mocha-taupe-back.webp",
+};
+const menLatteBeige: Variant = {
+  name: "Beige",
+  hex: "#DCC2A5",
+  image: "/products/latte-beige-front.webp",
+  back: "/products/latte-beige-back.webp",
+};
+const menAlpineNavy: Variant = {
+  name: "Navy & White",
+  hex: "#1C2B50",
+  image: "/products/alpine-navy-front.webp",
+  back: "/products/alpine-navy-back.webp",
+};
+
 const premiumBlack: Variant = {
   name: "Black",
   hex: "#15171A",
@@ -36,10 +54,10 @@ const premiumBlack: Variant = {
 export const products: readonly Product[] = [
   // Men
   { id: "m1", slug: "bear-tracksuit-men", name: "Bear Tracksuit", category: "men", price: 7500, sizes: SIZES, variants: [menBearBlue], isNew: true },
+  { id: "m4", slug: "latte-tracksuit-men", name: "Latte Tracksuit", category: "men", price: 7200, sizes: SIZES, variants: [menLatteBeige] },
   { id: "m2", slug: "summit-tracksuit-men", name: "Summit Tracksuit", category: "men", price: 6900, sizes: SIZES, variants: [menSummitNavy], isNew: true },
-  { id: "m3", slug: "heavy-fleece-tracksuit-men", name: "Heavy Fleece Tracksuit", category: "men", price: 8900, sizes: SIZES, variants: [blue] },
-  { id: "m4", slug: "classic-tracksuit-men", name: "Classic Tracksuit", category: "men", price: 7200, sizes: SIZES, variants: [sandFlat] },
-  { id: "m5", slug: "everyday-tracksuit-men", name: "Everyday Tracksuit", category: "men", price: 6500, sizes: SIZES, variants: [blue], isNew: true },
+  { id: "m3", slug: "mocha-tracksuit-men", name: "Mocha Tracksuit", category: "men", price: 8900, sizes: SIZES, variants: [menMochaTaupe], isNew: true },
+  { id: "m5", slug: "alpine-tracksuit-men", name: "Alpine Tracksuit", category: "men", price: 7800, sizes: SIZES, variants: [menAlpineNavy], isNew: true },
   // Women
   { id: "w1", slug: "bear-tracksuit-women", name: "Bear Tracksuit", category: "women", price: 7500, sizes: SIZES, variants: [pink, sand], isNew: true },
   { id: "w2", slug: "essential-tracksuit-women", name: "Essential Tracksuit", category: "women", price: 6900, sizes: SIZES, variants: [sand, pink] },
