@@ -8,8 +8,6 @@ import type { Category, Product, Size, Variant } from "@/types/product";
 const SIZES: readonly Size[] = ["S", "M", "L", "XL"];
 
 const pink: Variant = { name: "Rose Pink", hex: "#E58BAA", image: "/products/pink-set.webp" };
-const sand: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/beige-set.webp" };
-const sandFlat: Variant = { name: "Sand", hex: "#D9C7A8", image: "/products/sand-set-flat.webp", fit: "flat" };
 
 /* Real men's photos (front + back) */
 const menBearBlue: Variant = {
@@ -44,6 +42,38 @@ const menAlpineNavy: Variant = {
   back: "/products/alpine-navy-back.webp",
 };
 
+/* Real women's photos (front + back) */
+const womenNoirBlack: Variant = {
+  name: "Black",
+  hex: "#151515",
+  image: "/products/noir-black-front.webp",
+  back: "/products/noir-black-back.webp",
+};
+const womenMerlotMaroon: Variant = {
+  name: "Maroon",
+  hex: "#6E1226",
+  image: "/products/merlot-maroon-front.webp",
+  back: "/products/merlot-maroon-back.webp",
+};
+const womenBearPink: Variant = {
+  name: "Rose Pink",
+  hex: "#E98AA8",
+  image: "/products/bear-pink-front.webp",
+  back: "/products/bear-pink-back.webp",
+};
+const womenEssentialBeige: Variant = {
+  name: "Sand",
+  hex: "#D8C5AB",
+  image: "/products/essential-beige-front.webp",
+  back: "/products/essential-beige-back.webp",
+};
+const womenMauvePink: Variant = {
+  name: "Mauve Pink",
+  hex: "#BF6F86",
+  image: "/products/mauve-pink-front.webp",
+  back: "/products/mauve-pink-back.webp",
+};
+
 const premiumBlack: Variant = {
   name: "Black",
   hex: "#15171A",
@@ -59,11 +89,11 @@ export const products: readonly Product[] = [
   { id: "m3", slug: "mocha-tracksuit-men", name: "Mocha Tracksuit", category: "men", price: 8900, sizes: SIZES, variants: [menMochaTaupe], isNew: true },
   { id: "m5", slug: "alpine-tracksuit-men", name: "Alpine Tracksuit", category: "men", price: 7800, sizes: SIZES, variants: [menAlpineNavy], isNew: true },
   // Women
-  { id: "w1", slug: "bear-tracksuit-women", name: "Bear Tracksuit", category: "women", price: 7500, sizes: SIZES, variants: [pink, sand], isNew: true },
-  { id: "w2", slug: "essential-tracksuit-women", name: "Essential Tracksuit", category: "women", price: 6900, sizes: SIZES, variants: [sand, pink] },
-  { id: "w3", slug: "soft-fleece-tracksuit-women", name: "Soft Fleece Tracksuit", category: "women", price: 7800, sizes: SIZES, variants: [sandFlat] },
-  { id: "w4", slug: "classic-tracksuit-women", name: "Classic Tracksuit", category: "women", price: 7200, sizes: SIZES, variants: [pink] },
-  { id: "w5", slug: "everyday-tracksuit-women", name: "Everyday Tracksuit", category: "women", price: 6500, sizes: SIZES, variants: [pink], isNew: true },
+  { id: "w3", slug: "noir-tracksuit-women", name: "Noir Tracksuit", category: "women", price: 7800, sizes: SIZES, variants: [womenNoirBlack], isNew: true },
+  { id: "w1", slug: "bear-tracksuit-women", name: "Bear Tracksuit", category: "women", price: 7500, sizes: SIZES, variants: [womenBearPink], isNew: true },
+  { id: "w4", slug: "merlot-tracksuit-women", name: "Merlot Tracksuit", category: "women", price: 8200, sizes: SIZES, variants: [womenMerlotMaroon], isNew: true },
+  { id: "w2", slug: "essential-tracksuit-women", name: "Essential Tracksuit", category: "women", price: 6900, sizes: SIZES, variants: [womenEssentialBeige] },
+  { id: "w5", slug: "mauve-tracksuit-women", name: "Mauve Tracksuit", category: "women", price: 7200, sizes: SIZES, variants: [womenMauvePink], isNew: true },
   // Premium
   { id: "p1", slug: "midnight-cargo-tracksuit", name: "Midnight Cargo Tracksuit", category: "premium", price: 14500, sizes: SIZES, variants: [premiumBlack], description: "From our premium line." },
   { id: "p2", slug: "signature-bear-tracksuit", name: "Signature Bear Tracksuit", category: "premium", price: 16500, sizes: SIZES, variants: [pink], description: "From our premium line." },
