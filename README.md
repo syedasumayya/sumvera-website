@@ -127,8 +127,7 @@ Edit `src/data/faq.ts` and `src/data/reviews.ts`. Only add reviews that real cus
 
 Some content is still temporary and should be replaced before launch:
 
-- The second Premium design still uses a placeholder photo. The Men section, the Women section and the first Premium design have real photos.
-- All prices and several product names are placeholders.
+- All products have real photos (front and back). All prices and several product names are still placeholders.
 - FAQ answers are general. Add your real delivery, return and exchange policy.
 - `ProductArt.tsx` and the `Garment` type are left over from the first drawn mockup and are no longer used.
 
