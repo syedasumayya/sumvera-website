@@ -6,7 +6,7 @@
 
 *Comfort meets confidence.*
 
-**[Visit the website](https://sumvera-website.vercel.app)**
+**[Visit the website](https://sumvera-website-flame.vercel.app/)**
 
 Made in Islamabad, Pakistan
 
